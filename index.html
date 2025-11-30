@@ -1,1 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Happy Birthday!</title>
 
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #ff9ecb, #ff6bbb, #ff3c8a);
+        background-size: 400% 400%;
+        animation: gradient 10s ease infinite;
+        font-family: "Poppins", sans-serif;
+        text-align: center;
+        color: white;
+        overflow: hidden;
+    }
+
+    @keyframes gradient {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+        margin-top: 40px;
+        font-size: 50px;
+        animation: glow 2s infinite alternate ease-in-out;
+    }
+
+    @keyframes glow {
+        from { text-shadow: 0 0 10px white; }
+        to { text-shadow: 0 0 25px #fff, 0 0 50px #ffccff; }
+    }
+
+    .photo {
+        width: 280px;
+        height: 420px;
+        border-radius: 25px;
+        object-fit: cover;
+        margin-top: 25px;
+        box-shadow: 0 0 25px rgba(255,255,255,0.7);
+        animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-12px); }
+        100% { transform: translateY(0); }
+    }
+
+    .message {
+        margin-top: 25px;
+        width: 80%;
+        font-size: 22px;
+        margin-left: auto;
+        margin-right: auto;
+        animation: fadeIn 3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    /* Magical particles */
+    .sparkle {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: white;
+        border-radius: 50%;
+        box-shadow: 0 0 8px white;
+        animation: sparkleMove 5s linear infinite;
+        opacity: 0.8;
+    }
+
+    @keyframes sparkleMove {
+        from { transform: translateY(0) scale(0.5); opacity: 1; }
+        to { transform: translateY(-800px) scale(1.4); opacity: 0; }
+    }
+</style>
+</head>
+
+<body>
+
+<h1>✨ Happy Birthday ✨</h1>
+
+<img src="herphoto.jpg" class="photo" alt="Birthday Photo">
+
+<div class="message">
+    Wishing you a day filled with love, happiness, magic and endless smiles.  
+    You are truly special — may this year bring you everything beautiful.  
+    ✨💖🎂
+</div>
+
+<script>
+    // floating sparkles
+    function sparkles() {
+        const s = document.createElement("div");
+        s.classList.add("sparkle");
+        s.style.left = Math.random() * window.innerWidth + "px";
+        s.style.bottom = "-10px";
+        s.style.animationDuration = 4 + Math.random() * 4 + "s";
+        document.body.appendChild(s);
+        setTimeout(() => s.remove(), 6000);
+    }
+    setInterval(sparkles, 200);
+</script>
+
+</body>
+</html>
